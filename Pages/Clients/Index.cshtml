@@ -1,0 +1,39 @@
+﻿@page
+@model ASP.NET_Core_Web_Application_With_SQL_Server_Database_Connection.Pages.Clients.IndexModel
+@{
+}
+<br />
+<h2>List of CLients</h2>
+<a href="/Clients/Create" class="btn btn-primary btn-sm">New Clients</a>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID </th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Created At</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listClients)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.name</td>
+                <td>@item.email</td>
+                <td>@item.phone</td>
+                <td>@item.address</td>
+                <td>@item.created_at</td>
+                <td>
+                    <a href="/Clients/Edit?id=@item.id" class="btn btn-secondary btn-sm">Edit</a>
+                    <a href="/Clients/Delete?id=@item.id" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
